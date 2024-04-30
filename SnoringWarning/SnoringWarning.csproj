@@ -66,12 +66,11 @@
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" PrivateAssets="all" />
-    <PackageReference Include="CommanderCat101.ContentSettings" Version="1.1.0" />
+    <PackageReference Include="CommanderCat101.ContentSettings" Version="1.2.2" />
     <PackageReference Include="MinVer" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="RugbugRedfern.MyceliumNetworking.CW" Version="1.0.11" />
     <PackageReference Include="UnityEngine.Modules" Version="2022.3.10" PrivateAssets="all" />
     <PackageReference Include="ContentWarning.GameLibs.Steam" Version="*-*" Publicize="true" PrivateAssets="all" />
   </ItemGroup>
@@ -83,5 +82,8 @@
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>$(MMHOOKManaged)MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MMHOOK\" />
   </ItemGroup>
 </Project>

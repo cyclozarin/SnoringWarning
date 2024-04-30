@@ -4,20 +4,17 @@ using SnoringWarning.Hooks;
 using System.Reflection;
 using System.Linq;
 using UnityEngine;
-using ContentSettings.API;
-using SnoringWarning.Settings;
 
 namespace SnoringWarning;
-[ContentWarningPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, false)]
+[ContentWarningPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, true)]
 [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, "1.0.0")]
 [BepInDependency("RugbugRedfern.MyceliumNetworking", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("CommanderCat101.ContentSettings", BepInDependency.DependencyFlags.HardDependency)]
 public class SnoringWarning : BaseUnityPlugin
 {
     public static SnoringWarning Instance { get; private set; } = null!;
-    internal new static ManualLogSource Logger { get; private set; } = null!;
 
-    internal const uint PLUGIN_MYCELIUM_ID = 6805;
+    internal new static ManualLogSource Logger { get; private set; } = null!;
 
     private static string snoreBundleName = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault((n) => n.EndsWith("snoringwarning"));
 
@@ -27,16 +24,15 @@ public class SnoringWarning : BaseUnityPlugin
     {
         Logger = base.Logger;
         Instance = this;
-        SettingsLoader.RegisterSetting(new SnoreType());
-        SettingsLoader.RegisterSetting(new SnoreVolume());
 
         new BedHook().Init();
+        // On.Bed.Interact += MM_Prefix_AutoSleepy;
         LogInfo($"{MyPluginInfo.PLUGIN_NAME} ({MyPluginInfo.PLUGIN_GUID}) has loaded!");
     }
 
-    //Debug function for making players always sleepy
+    // Debug function for making players always sleepy
     //private void MM_Prefix_AutoSleepy(On.Bed.orig_Interact orig, Bed self, Player player)
-    // {
+    //{
     //    self.RequestSleep(player);
     //}
 

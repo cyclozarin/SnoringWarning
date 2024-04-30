@@ -1,8 +1,10 @@
 ﻿using Zorro.Settings;
 using System.Collections.Generic;
 using ContentSettings.API.Settings;
+using ContentSettings.API.Attributes;
 
 namespace SnoringWarning.Settings;
+[SettingRegister("CYCLOZARIN MODS", "SnoringWarning settings")]
 internal class SnoreType : EnumSetting, ICustomSetting
 {
     private List<string> _choices => ["Silent", "Loud"];
